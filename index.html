@@ -1,316 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ArdeshirV</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/ArdeshirV/resources/master/personal/ArdeshirV.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<meta name="description" content="ArdeshirV — Software Developer, Systems Builder, and Open-Source Enthusiast.">
+<link rel="icon" href="https://raw.githubusercontent.com/ArdeshirV/resources/master/personal/ArdeshirV.ico">
+<title>ArdeshirV — Software Developer & Builder</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0d12;--panel:#11151d;--panel2:#151b25;--text:#edf1f7;--muted:#a0aaba;--line:#27303d;--accent:#a3f36b;--accent2:#7de2d1;--max:1120px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,#17251f 0,transparent 32%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:5;background:#0b0d12e8;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff0c}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-weight:800;letter-spacing:-.04em;font-size:1.15rem}
+.brand span{color:var(--accent)}
+nav{display:flex;gap:26px;color:var(--muted);font-size:.92rem}
+.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:9px;padding:10px 15px;font-weight:650;font-size:.9rem}
+.nav-cta{border-color:#a3f36b66;color:var(--accent)}
+.hero{padding:90px 0 78px;display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center;min-height:570px}
+.profile-photo{width:112px;height:112px;object-fit:cover;border-radius:50%;border:2px solid var(--accent);padding:4px;background:var(--panel);margin-bottom:22px;box-shadow:0 8px 32px #0005}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.17em;font-size:.75rem;font-weight:800}
+.hero h1{font-size:clamp(3.2rem,7vw,6rem);line-height:.99;letter-spacing:-.075em;margin:20px 0 25px}
+.hero h1 span{color:var(--accent)}
+.lead{max-width:640px;font-size:1.15rem;color:#c0c8d4;line-height:1.8}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.button.primary{background:var(--accent);border-color:var(--accent);color:#11170d}
+.button.secondary{color:var(--text)}
+.button:hover{transform:translateY(-2px)}
+.hero-card{background:linear-gradient(145deg,#19221e,#10151d 65%);border:1px solid #34453b;border-radius:18px;padding:28px;box-shadow:0 25px 90px #0005}
+.terminal-top{display:flex;gap:7px;margin-bottom:28px}
+.dot{width:9px;height:9px;border-radius:50%;background:#59616c}
+.terminal-label{margin-left:auto;color:#7f8c9d;font:12px ui-monospace,monospace}
+.code{font:14px/2 ui-monospace,SFMono-Regular,Consolas,monospace;color:#b8c4d3;overflow-wrap:anywhere}
+.code .key{color:var(--accent2)}
+.code .value{color:var(--accent)}
+.code .dim{color:#687587}
+.availability{display:flex;align-items:center;gap:9px;color:#c4cfda;margin-top:28px;font-size:.85rem}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px #a3f36b17}
+section{padding:76px 0;border-top:1px solid #ffffff0b}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:30px}
+.kicker{color:var(--accent);font:700 .76rem ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
+.section-head h2{font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.055em;line-height:1.1;margin:9px 0 0}
+.section-head p{max-width:450px;color:var(--muted);margin:0}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
+.about-copy p{color:#c0c8d4;font-size:1.04rem}
+.principles{display:grid;gap:12px}
+.principle{padding:17px 18px;background:var(--panel);border:1px solid var(--line);border-radius:11px}
+.principle strong{display:block;margin-bottom:3px}
+.principle span{color:var(--muted);font-size:.92rem}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project{min-height:260px;display:flex;flex-direction:column;padding:23px;background:linear-gradient(155deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;transition:transform .2s,border-color .2s}
+.project:hover{transform:translateY(-4px);border-color:#a3f36b77}
+.project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;gap:8px}
+.project-icon{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:#a3f36b12;color:var(--accent);font:700 1rem ui-monospace,monospace}
+.tag{font-size:.72rem;color:var(--accent2);border:1px solid #7de2d133;padding:4px 8px;border-radius:20px}
+.project h3{font-size:1.13rem;margin:0 0 8px;letter-spacing:-.02em}
+.project p{color:var(--muted);font-size:.91rem;margin:0 0 22px}
+.project .meta{margin-top:auto;color:#7f8c9d;font:12px ui-monospace,monospace}
+.project .repo{color:var(--accent);font-weight:650;font-size:.88rem;margin-top:13px}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skill{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.skill h3{font-size:1rem;margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:.8rem;color:#c4cdda;background:#1c2430;border:1px solid #303b4b;border-radius:6px;padding:4px 8px}
+.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.now-card{padding:26px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.now-card h3{margin:0 0 8px}
+.now-card p{color:var(--muted);margin:0}
+.now-card .label{color:var(--accent);font:700 .72rem ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.contact{padding:50px;background:linear-gradient(120deg,#19231d,#11151d 65%);border:1px solid #34453b;border-radius:18px;display:flex;justify-content:space-between;align-items:center;gap:30px}
+.contact h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.05em;margin:10px 0}
+.contact p{color:var(--muted);margin:0;max-width:560px}
+.contact-links{display:flex;flex-direction:column;gap:10px;min-width:180px}
+.contact-links a{color:var(--accent);font-weight:650}
+.footer{padding:28px 0;color:#788494;font-size:.83rem;display:flex;justify-content:space-between;gap:20px}
+.footer a{color:#b8c3d1}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:35px;padding-top:65px}.hero-card{max-width:600px}.projects{grid-template-columns:repeat(2,1fr)}.skills{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr;gap:24px}.section-head{align-items:start;flex-direction:column}.contact{align-items:start;flex-direction:column}}
+@media(max-width:560px){.wrap{width:min(100% - 28px,var(--max))}.nav{height:64px}nav{gap:13px;font-size:.82rem}nav a:nth-child(2),nav a:nth-child(3){display:none}.nav-cta{padding:8px 10px}.hero{padding:55px 0}.hero h1{font-size:3.55rem}.projects,.skills,.now-grid{grid-template-columns:1fr}.project{min-height:220px}.contact{padding:28px}.footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+</style>
 </head>
-<header class="header-banner">
-  <link rel="stylesheet" type="text/css" href="css/pink_index.css">
-  <div class="container-width">
-    <div class="logo-container">
-      <a class="logo-container" href="https://github.com/ArdeshirV" target="_blank"><div class="logo">My-Github</div></a>
-    </div>
-    <nav class="menu">
-      <a href="#section_flex"><div class="menu-item">Programming</div></a>
-      <a href="#div_blocks"><div class="menu-item">Blocks</div></a>
-      <a href="#section_manager"><div class="menu-item">Manager</div></a>
-      <a href="#div_the_team"><div class="menu-item">Team</div></a>
-    </nav>
-    <div class="clearfix">
-    </div>
-    <div class="lead-title">This is my sample template
-    </div>
-    <div class="sub-lead-title">All text blocks could be edited easily with double clicking on it. You can create new text blocks with the command from the left panel
-    </div>
-    <a href="https://ardeshirv.github.io/w3/" target="_blank"><div class="lead-btn">Web-Page</div></a>
-  </div>
-</header>
 <body>
-<section id="section_flex" class="flex-sect">
-  <div class="container-width">
-    <div class="flex-title">Flex is the new black
-    </div>
-    <div class="flex-desc">With flexbox system you're able to build complex layouts easily and with free responsivity
-    </div>
-    <div class="cards">
-      <div class="card">
-        <div class="card-header">
-        </div>
-        <div class="card-body">
-          <div class="card-title">Title one
-          </div>
-          <div class="card-sub-title"><a target="_blank" href="https://ardeshirv.github.io/bin2dec/" alt="bin2dec Project">bin2dec Project</a>
-          </div>
-          <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header ch2">
-        </div>
-        <div class="card-body">
-          <div class="card-title">Title two
-          </div>
-          <div class="card-sub-title">Subtitle two
-          </div>
-          <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header ch3">
-        </div>
-        <div class="card-body">
-          <div class="card-title">Title three
-          </div>
-          <div class="card-sub-title">Subtitle three
-          </div>
-          <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header ch4">
-        </div>
-        <div class="card-body">
-          <div class="card-title">Title four
-          </div>
-          <div class="card-sub-title">Subtitle four
-          </div>
-          <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header ch5">
-        </div>
-        <div class="card-body">
-          <div class="card-title">Title five
-          </div>
-          <div class="card-sub-title">Subtitle five
-          </div>
-          <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header ch6">
-        </div>
-        <div class="card-body">
-          <div class="card-title">Title six
-          </div>
-          <div class="card-sub-title">Subtitle six
-          </div>
-          <div class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="section_manager" class="am-sect">
-  <div class="container-width">
-    <div class="am-container">
-      <img src="https://avatars1.githubusercontent.com/u/46844576?s=460&v=4" class="img-phone"/>
-      <div class="am-content">
-        <div class="am-pre">ASSET MANAGER
-        </div>
-        <div class="am-title">Manage your images with Asset Manager
-        </div>
-        <div class="am-desc">You can create image blocks with the command from the left panel and edit them with double click
-        </div>
-        <div class="am-post">Image uploading is not allowed in this demo
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="blk-sect">
-  <div class="container-width">
-    <div id="div_blocks" class="blk-title">Blocks</div>
-    <div class="blk-desc">Each element in HTML page could be seen as a block. On the left panel you could find different kind of blocks that you can create, move and style
-    </div>
-    <div class="price-cards">
-      <div class="price-card-cont">
-        <div class="price-card">
-          <div class="pc-title">Starter
-          </div>
-          <div class="pc-desc">Some random list
-          </div>
-          <div class="pc-feature odd-feat">+ Starter feature 1
-          </div>
-          <div class="pc-feature">+ Starter feature 2
-          </div>
-          <div class="pc-feature odd-feat">+ Starter feature 3
-          </div>
-          <div class="pc-feature">+ Starter feature 4
-          </div>
-          <div class="pc-amount odd-feat">$ 9,90/mo
-          </div>
-        </div>
-      </div>
-      <div class="price-card-cont">
-        <div class="price-card pc-regular">
-          <div class="pc-title">Regular
-          </div>
-          <div class="pc-desc">Some random list
-          </div>
-          <div class="pc-feature odd-feat">+ Regular feature 1
-          </div>
-          <div class="pc-feature">+ Regular feature 2
-          </div>
-          <div class="pc-feature odd-feat">+ Regular feature 3
-          </div>
-          <div class="pc-feature">+ Regular feature 4
-          </div>
-          <div class="pc-amount odd-feat">$ 19,90/mo
-          </div>
-        </div>
-      </div>
-      <div class="price-card-cont">
-        <div class="price-card pc-enterprise">
-          <div class="pc-title">Enterprise
-          </div>
-          <div class="pc-desc">Some random list
-          </div>
-          <div class="pc-feature odd-feat">+ Enterprise feature 1
-          </div>
-          <div class="pc-feature">+ Enterprise feature 2
-          </div>
-          <div class="pc-feature odd-feat">+ Enterprise feature 3
-          </div>
-          <div class="pc-feature">+ Enterprise feature 4
-          </div>
-          <div class="pc-amount odd-feat">$ 29,90/mo
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="bdg-sect">
-  <div class="container-width">
-    <h1 id="div_the_team" class="bdg-title">The team
-    </h1>
-    <div class="badges">
-      <div class="badge">
-        <div class="badge-header">
-        </div>
-        <img src="https://avatars1.githubusercontent.com/u/46844576?s=460&v=4" class="badge-avatar"/>
-        <div class="badge-body">
-          <div class="badge-name">Ardeshir
-          </div>
-          <div class="badge-role">CEO
-          </div>
-          <div class="badge-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit
-          </div>
-        </div>
-        <div class="badge-foot">
-          <span class="badge-link">f</span>
-          <span class="badge-link">t</span>
-          <span class="badge-link">ln</span>
-        </div>
-      </div>
-      <div class="badge">
-        <div class="badge-header">
-        </div>
-        <img src="https://avatars1.githubusercontent.com/u/46844576?s=460&v=4" class="badge-avatar"/>
-        <div class="badge-body">
-          <div class="badge-name">Ardeshir
-          </div>
-          <div class="badge-role">Software Engineer
-          </div>
-          <div class="badge-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit
-          </div>
-        </div>
-        <div class="badge-foot">
-          <span class="badge-link">f</span>
-          <span class="badge-link">t</span>
-          <span class="badge-link">ln</span>
-        </div>
-      </div>
-      <div class="badge">
-        <div class="badge-header">
-        </div>
-        <img src="https://avatars1.githubusercontent.com/u/46844576?s=460&v=4" class="badge-avatar"/>
-        <div class="badge-body">
-          <div class="badge-name">Ardeshir
-          </div>
-          <div class="badge-role">Web Designer
-          </div>
-          <div class="badge-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit
-          </div>
-        </div>
-        <div class="badge-foot">
-          <span class="badge-link">f</span>
-          <span class="badge-link">t</span>
-          <span class="badge-link">ln</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<footer class="footer-under">
-  <div class="container-width">
-    <div class="footer-container">
-      <div class="foot-lists">
-        <div class="foot-list">
-          <div class="foot-list-title">About us
-          </div>
-          <div class="foot-list-item">Contact
-          </div>
-          <div class="foot-list-item">Events
-          </div>
-          <div class="foot-list-item">Company
-          </div>
-          <div class="foot-list-item">Jobs
-          </div>
-          <div class="foot-list-item">Blog
-          </div>
-        </div>
-        <div class="foot-list">
-          <div class="foot-list-title">Services
-          </div>
-          <div class="foot-list-item">Education
-          </div>
-          <div class="foot-list-item">Partner
-          </div>
-          <div class="foot-list-item">Community
-          </div>
-          <div class="foot-list-item">Forum
-          </div>
-          <div class="foot-list-item">Download
-          </div>
-          <div class="foot-list-item">Upgrade
-          </div>
-        </div>
-        <div class="clearfix">
-        </div>
-      </div>
-      <div class="form-sub">
-        <div class="foot-form-cont">
-          <div class="foot-form-title">Subscribe
-          </div>
-          <div class="foot-form-desc">Subscribe to our newsletter to receive exclusive offers and the latest news
-          </div>
-          <input name="name" placeholder="Name" class="sub-input"/>
-          <input name="email" placeholder="Email" class="sub-input"/>
-          <button type="button" class="sub-btn">Submit</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="copyright">
-    <div class="container-width">
-      <div class="made-with">
-        Made by Ardeshir
-      </div>
-      <div class="foot-social-btns">facebook twitter linkedin mail
-      </div>
-      <div class="clearfix">
-      </div>
-    </div>
-  </div>
+<header>
+<div class="wrap nav">
+<a class="brand" href="#home">Ardeshir<span>V</span></a>
+<nav aria-label="Main navigation">
+<a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+</nav>
+<a class="nav-cta" href="https://github.com/ArdeshirV" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+</div>
+</header>
+
+<main>
+<div class="wrap hero" id="home">
+<div>
+<img class="profile-photo"
+src="https://avatars1.githubusercontent.com/u/46844576?s=460&amp;v=4"
+alt="ArdeshirV — Software Developer"
+width="112" height="112" fetchpriority="high">
+<div class="eyebrow">Software · Systems · Open source</div>
+<h1>Hi, I'm<br><span>Ardeshir.</span></h1>
+<p class="lead">I build software to solve real problems — from backend services and developer tools to low-level experiments and computer-vision-driven hardware.</p>
+<div class="actions">
+<a class="button primary" href="#projects">Explore my work ↘</a>
+<a class="button secondary" href="https://www.linkedin.com/in/ArdeshirV/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+</div>
+</div>
+<aside class="hero-card" aria-label="Developer profile card">
+<div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-label">ardeshirv / profile</span></div>
+<div class="code">
+<div><span class="dim">01</span> <span class="key">const</span> developer = {</div>
+<div>&nbsp;&nbsp;name: <span class="value">"Ardeshir"</span>,</div>
+<div>&nbsp;&nbsp;focus: [</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Backend engineering"</span>,</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Open-source software"</span>,</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Computer vision & hardware"</span></div>
+<div>&nbsp;&nbsp;],</div>
+<div>&nbsp;&nbsp;approach: <span class="value">"Build. Test. Improve."</span></div>
+<div>};</div>
+</div>
+<div class="availability"><span class="pulse"></span> Curious by default. Always learning.</div>
+</aside>
+</div>
+
+<section id="about"><div class="wrap">
+<div class="section-head">
+<div><div class="kicker">01 / About</div><h2>Practical engineering,<br>curious by nature.</h2></div>
+<p>I enjoy understanding how things work, then turning that understanding into useful, maintainable software.</p>
+</div>
+<div class="about-grid">
+<div class="about-copy">
+<p>My public work spans multiple layers of software: C# desktop utilities, Go backend applications, Python integrations, C++ experiments, and web-based tools. I value clear structure, reliability, and learning through building.</p>
+<p>Alongside software projects, I'm developing a PCB solder-paste inspection (SPI) system that brings together machine vision, motion control, lighting, and embedded hardware. It is an ongoing engineering project, not a finished product.</p>
+</div>
+<div class="principles">
+<div class="principle"><strong>Build for a reason</strong><span>Prefer useful outcomes over technology for its own sake.</span></div>
+<div class="principle"><strong>Understand the whole system</strong><span>Connect software, hardware, interfaces, and operations.</span></div>
+<div class="principle"><strong>Keep learning in public</strong><span>Explore ideas, share code, and improve through iteration.</span></div>
+</div>
+</div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<div class="section-head">
+<div><div class="kicker">02 / Selected work</div><h2>Projects & experiments</h2></div>
+<p>A selection of public repositories and an active engineering project. Visit GitHub for the broader collection.</p>
+</div>
+<div class="projects">
+<article class="project">
+<div class="project-top"><div class="project-icon">SPI</div><span class="tag">In development</span></div>
+<h3>PCB Solder Paste Inspection</h3>
+<p>A machine-vision system in development combining tiled close-up imaging, OpenCV, motion control, lighting, and embedded electronics.</p>
+<div class="meta">VISION · OPENCV · EMBEDDED</div>
+</article>
+<article class="project">
+<div class="project-top"><div class="project-icon">GO</div><span class="tag">Backend</span></div>
+<h3>Airline Ticket Management</h3>
+<p>A Go-based booking and management service created as a software engineering bootcamp final project, with a container-oriented setup.</p>
+<div class="meta">GO · DOCKER · POSTGRESQL</div>
+<a class="repo" href="https://github.com/ArdeshirV/Airline-Ticket-Management" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+</article>
+<article class="project">
+<div class="project-top"><div class="project-icon">C#</div><span class="tag">Developer tools</span></div>
+<h3>ArdeshirV.Forms</h3>
+<p>A customized collection of reusable Windows Forms components and common application UI utilities.</p>
+<div class="meta">C# · .NET · WINDOWS FORMS</div>
+<a class="repo" href="https://github.com/ArdeshirV/ArdeshirV.Forms" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+</article>
+<article class="project">
+<div class="project-top"><div class="project-icon">QR</div><span class="tag">Utility</span></div>
+<h3>QR Code Generator with Logo</h3>
+<p>A tool for generating QR codes with a predefined or custom logo embedded in the code.</p>
+<div class="meta">C# · QR CODES</div>
+<a class="repo" href="https://github.com/ArdeshirV/QrCodeGeneratorWithLogo" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+</article>
+<article class="project">
+<div class="project-top"><div class="project-icon">AV</div><span class="tag">Language tools</span></div>
+<h3>Spring Avestan Editor</h3>
+<p>A text editor project focused on working with Avestan language text.</p>
+<div class="meta">SMALLTALK · TEXT EDITING</div>
+<a class="repo" href="https://github.com/ArdeshirV/SpringAvestanEditor" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+</article>
+<article class="project">
+<div class="project-top"><div class="project-icon">C++</div><span class="tag">Experiment</span></div>
+<h3>FractalX</h3>
+<p>A compact exploration of fractal generation, demonstrating Sierpinski triangle, snowflake, and tree patterns.</p>
+<div class="meta">C++ · FRACTALS · GRAPHICS</div>
+<a class="repo" href="https://github.com/ArdeshirV/FractalX" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+</article>
+</div>
+<div class="actions"><a class="button secondary" href="https://github.com/ArdeshirV?tab=repositories" target="_blank" rel="noopener noreferrer">Browse all repositories ↗</a></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<div class="section-head">
+<div><div class="kicker">03 / Toolbox</div><h2>Technologies I work with</h2></div>
+<p>A snapshot of languages and areas represented in my projects and current learning.</p>
+</div>
+<div class="skills">
+<div class="skill"><h3>Languages</h3><div class="chips"><span class="chip">Go</span><span class="chip">C#</span><span class="chip">Python</span><span class="chip">C</span><span class="chip">C++</span><span class="chip">JavaScript</span></div></div>
+<div class="skill"><h3>Backend & data</h3><div class="chips"><span class="chip">REST APIs</span><span class="chip">SQL</span><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">Service design</span></div></div>
+<div class="skill"><h3>Tools & platforms</h3><div class="chips"><span class="chip">Linux</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">GitHub</span><span class="chip">VS Code</span></div></div>
+<div class="skill"><h3>Systems & vision</h3><div class="chips"><span class="chip">OpenCV</span><span class="chip">Arduino</span><span class="chip">Motion control</span><span class="chip">Computer vision</span><span class="chip">Hardware integration</span></div></div>
+</div>
+</div></section>
+
+<section id="currently"><div class="wrap">
+<div class="section-head"><div><div class="kicker">04 / Current direction</div><h2>What I'm exploring now</h2></div></div>
+<div class="now-grid">
+<div class="now-card"><div class="label">Building</div><h3>Machine vision meets hardware</h3><p>Designing a practical SPI workflow: capture consistency, tiled imaging, stage movement, illumination control, and inspection software.</p></div>
+<div class="now-card"><div class="label">Growing</div><h3>Modern software engineering</h3><p>Deepening my Go and Linux workflow while exploring reliable application architecture, automation, and AI-assisted development.</p></div>
+</div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<div class="contact">
+<div><div class="kicker">05 / Get in touch</div><h2>Have an interesting problem?</h2><p>I'm interested in thoughtful engineering, useful software, and exchanging ideas with people who enjoy building things.</p></div>
+<div class="contact-links">
+<a href="https://github.com/ArdeshirV" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+<a href="https://www.linkedin.com/in/ArdeshirV/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+<a href="https://orcid.org/0009-0004-6154-6557" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
+</div>
+</div>
+</div></section>
+</main>
+
+<footer class="wrap footer">
+<span>© <span id="year">2026</span> ArdeshirV. Built with care.</span>
+<span><a href="https://github.com/ArdeshirV">GitHub</a> · <a href="https://www.linkedin.com/in/ArdeshirV/">LinkedIn</a></span>
 </footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
-</html> 
+</html>
