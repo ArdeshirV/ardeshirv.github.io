@@ -1,262 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0d12">
 <meta name="description" content="Ardeshir — open-source developer building Go and C++ tools, cross-platform apps, and language editors.">
-<link rel="icon" href="https://raw.githubusercontent.com/ArdeshirV/ardeshirv.github.io/refs/heads/master/img/ArdeshirV.ico">
 <title>ArdeshirV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark;--bg:#0b0d12;--panel:#11151d;--panel2:#151b25;--text:#edf1f7;--muted:#a0aaba;--line:#27303d;--accent:#a3f36b;--accent2:#7de2d1;--max:1120px}
+:root{--bg:#0b0d12;--panel:#141821;--line:#242a37;--text:#e8ebf2;--mute:#9aa3b5;--accent:#5eead4;--font:'Inter','Vazirmatn',system-ui,sans-serif}
+html[lang="fa"]{--font:'Vazirmatn','Inter',system-ui,sans-serif}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{margin:0;background:radial-gradient(ellipse at 80% 0%,#17251f 0,transparent 32%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7}
 a{color:inherit;text-decoration:none}
-a:hover{color:var(--accent)}
-.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-header{position:sticky;top:0;z-index:5;background:#0b0d12e8;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff0c}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{font-weight:800;letter-spacing:-.04em;font-size:1.15rem}
-.brand span{color:var(--accent)}
-nav{display:flex;gap:26px;color:var(--muted);font-size:.92rem}
-.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:9px;padding:10px 15px;font-weight:650;font-size:.9rem}
-.nav-cta{border-color:#a3f36b66;color:var(--accent)}
-.hero{padding:90px 0 78px;display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center;min-height:570px}
-.profile-photo{width:112px;height:112px;object-fit:cover;border-radius:50%;border:2px solid var(--accent);padding:4px;background:var(--panel);margin-bottom:22px;box-shadow:0 8px 32px #0005}
-.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.17em;font-size:.75rem;font-weight:800}
-.hero h1{font-size:clamp(3.2rem,7vw,6rem);line-height:.99;letter-spacing:-.075em;margin:20px 0 25px}
-.hero h1 span{color:var(--accent)}
-.lead{max-width:640px;font-size:1.15rem;color:#c0c8d4;line-height:1.8}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.button.primary{background:var(--accent);border-color:var(--accent);color:#11170d}
-.button.secondary{color:var(--text)}
-.button:hover{transform:translateY(-2px)}
-.hero-card{background:linear-gradient(145deg,#19221e,#10151d 65%);border:1px solid #34453b;border-radius:18px;padding:28px;box-shadow:0 25px 90px #0005}
-.terminal-top{display:flex;gap:7px;margin-bottom:28px}
-.dot{width:9px;height:9px;border-radius:50%;background:#59616c}
-.terminal-label{margin-left:auto;color:#7f8c9d;font:12px ui-monospace,monospace}
-.code{font:14px/2 ui-monospace,SFMono-Regular,Consolas,monospace;color:#b8c4d3;overflow-wrap:anywhere}
-.code .key{color:var(--accent2)}
-.code .value{color:var(--accent)}
-.code .dim{color:#687587}
-.availability{display:flex;align-items:center;gap:9px;color:#c4cfda;margin-top:28px;font-size:.85rem}
-.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px #a3f36b17}
-section{padding:76px 0;border-top:1px solid #ffffff0b}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:30px}
-.kicker{color:var(--accent);font:700 .76rem ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
-.section-head h2{font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.055em;line-height:1.1;margin:9px 0 0}
-.section-head p{max-width:450px;color:var(--muted);margin:0}
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
-.about-copy p{color:#c0c8d4;font-size:1.04rem}
-.principles{display:grid;gap:12px}
-.principle{padding:17px 18px;background:var(--panel);border:1px solid var(--line);border-radius:11px}
-.principle strong{display:block;margin-bottom:3px}
-.principle span{color:var(--muted);font-size:.92rem}
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.project{min-height:260px;display:flex;flex-direction:column;padding:23px;background:linear-gradient(155deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;transition:transform .2s,border-color .2s}
-.project:hover{transform:translateY(-4px);border-color:#a3f36b77}
-.project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;gap:8px}
-.project-icon{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:#a3f36b12;color:var(--accent);font:700 1rem ui-monospace,monospace}
-.tag{font-size:.72rem;color:var(--accent2);border:1px solid #7de2d133;padding:4px 8px;border-radius:20px}
-.project h3{font-size:1.13rem;margin:0 0 8px;letter-spacing:-.02em}
-.project p{color:var(--muted);font-size:.91rem;margin:0 0 22px}
-.project .meta{margin-top:auto;color:#7f8c9d;font:12px ui-monospace,monospace}
-.project .repo{color:var(--accent);font-weight:650;font-size:.88rem;margin-top:13px}
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.skill{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
-.skill h3{font-size:1rem;margin:0 0 10px}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{font-size:.8rem;color:#c4cdda;background:#1c2430;border:1px solid #303b4b;border-radius:6px;padding:4px 8px}
-.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.now-card{padding:26px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
-.now-card h3{margin:0 0 8px}
-.now-card p{color:var(--muted);margin:0}
-.now-card .label{color:var(--accent);font:700 .72rem ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-.contact{padding:50px;background:linear-gradient(120deg,#19231d,#11151d 65%);border:1px solid #34453b;border-radius:18px;display:flex;justify-content:space-between;align-items:center;gap:30px}
-.contact h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.05em;margin:10px 0}
-.contact p{color:var(--muted);margin:0;max-width:560px}
-.contact-links{display:flex;flex-direction:column;gap:10px;min-width:180px}
-.contact-links a{color:var(--accent);font-weight:650}
-.footer{padding:28px 0;color:#788494;font-size:.83rem;display:flex;justify-content:space-between;gap:20px}
-.footer a{color:#b8c3d1}
-@media(max-width:850px){.hero{grid-template-columns:1fr;gap:35px;padding-top:65px}.hero-card{max-width:600px}.projects{grid-template-columns:repeat(2,1fr)}.skills{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr;gap:24px}.section-head{align-items:start;flex-direction:column}.contact{align-items:start;flex-direction:column}}
-@media(max-width:560px){.wrap{width:min(100% - 28px,var(--max))}.nav{height:64px}nav{gap:13px;font-size:.82rem}nav a:nth-child(2),nav a:nth-child(3){display:none}.nav-cta{padding:8px 10px}.hero{padding:55px 0}.hero h1{font-size:3.55rem}.projects,.skills,.now-grid{grid-template-columns:1fr}.project{min-height:220px}.contact{padding:28px}.footer{flex-direction:column}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
-/* Developer terminal theme */
-:root{--bg:#080c0a;--panel:#0d1410;--panel2:#111a14;--text:#d8e5d9;--muted:#8b9b8e;--line:#26392c;--accent:#a6ff8f;--accent2:#5eead4;--max:1120px}
-body{background-color:var(--bg);background-image:linear-gradient(#a6ff8f08 1px,transparent 1px),linear-gradient(90deg,#a6ff8f08 1px,transparent 1px),radial-gradient(ellipse at 80% 0%,#10271b 0,transparent 35%);background-size:32px 32px,32px 32px,auto;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;letter-spacing:-.025em}
-header{background:#080c0af2;border-bottom-color:var(--line)}
-.brand{letter-spacing:-.06em}.brand::before{content:"~/";color:var(--muted);font-weight:400}.brand span{color:var(--accent)}
-nav{font-family:inherit}nav a::before{content:"./";color:#637768;font-size:.78em}
-.nav-cta,.button{border-radius:3px;font-family:inherit;transition:transform .2s,border-color .2s,background .2s}
-.nav-cta{border-color:#a6ff8f66}.nav-cta:hover,.button.secondary:hover{background:#a6ff8f0d}
-.hero{min-height:600px}.profile-photo{border-radius:6px;border-color:var(--accent);box-shadow:0 0 28px #a6ff8f20}
-.eyebrow{font-family:inherit;letter-spacing:.08em}.eyebrow::before{content:"$ ";color:var(--accent2)}
-.hero h1{font-family:inherit;letter-spacing:-.09em}.hero h1 span{color:var(--accent)}
-.hero h1::after{content:"";display:inline-block;width:.11em;height:.78em;margin-left:.12em;background:var(--accent);vertical-align:-.02em;animation:blink 1.1s steps(2,start) infinite}
-@keyframes blink{to{visibility:hidden}}
-.lead{color:#b5c5b8}.button.primary{color:#081009;border-radius:3px;box-shadow:0 0 22px #a6ff8f1c}.button.primary::before{content:">_ ";font-weight:800}
-.hero-card{background:#0a100c;border:1px solid #426448;border-radius:4px;box-shadow:0 20px 70px #0008,inset 0 1px #a6ff8f1a}.terminal-top{margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--line)}.terminal-label::before{content:"$ ";color:var(--accent2)}.dot{background:#ff6b6b}.dot:nth-child(2){background:#ffd166}.dot:nth-child(3){background:#80ed99}
-.code{line-height:1.9}.code .dim{color:#536458}.availability{font-family:inherit}
-section{border-top:1px dashed #26392c}.kicker{font-family:inherit;letter-spacing:.03em}.kicker::before{content:"$ ";color:var(--accent2)}
-.section-head h2{letter-spacing:-.07em}.section-head p,.about-copy p,.project p{color:#aab9ad}
-.principle,.skill,.now-card,.project{background:#0b120e;border-color:var(--line);border-radius:4px;box-shadow:inset 0 1px #ffffff05}.principle{border-left:2px solid #426448}.project{background:linear-gradient(145deg,#101911,#0b120e);transition:transform .2s,border-color .2s,box-shadow .2s}.project:hover{border-color:var(--accent);box-shadow:0 8px 28px #0005,0 0 18px #a6ff8f0c}.project-icon{border-radius:3px;background:#a6ff8f12}.tag{border-radius:3px;color:var(--accent2)}.project .meta{color:#77897b}.chip{color:#b9cabb;background:#111b14;border-color:#2a3b2e;border-radius:3px}.now-card{border-top:2px solid #426448}.now-card .label{font-family:inherit;letter-spacing:.04em}
-.contact{background:#0b120e;border:1px solid #426448;border-radius:4px;box-shadow:inset 0 1px #a6ff8f12}.contact .kicker::before{content:"$ ";color:var(--accent2)}.contact-links a{font-family:inherit}.footer{font-family:inherit;border-top:1px solid var(--line);color:#77897b}.footer a{color:#a8b9aa}
-@media(prefers-reduced-motion:reduce){.hero h1::after{animation:none}}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{font-weight:700}
+nav{display:flex;gap:18px;margin-inline-start:auto;color:var(--mute);font-size:.95rem}
+nav a:hover{color:var(--text)}
+.lang{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:4px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+.lang:hover{border-color:var(--accent)}
+.gh{color:var(--accent);font-size:.95rem}
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.15;margin:.3em 0}
+h2{font-size:1.9rem;margin:.2em 0 .5em}
+h3{margin:0 0 .3em;font-size:1.1rem}
+.mute{color:var(--mute)}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.hero img{width:120px;height:120px;border-radius:50%;border:2px solid var(--line)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{padding:10px 20px;border-radius:8px;border:1px solid var(--line)}
+.btn.p{background:var(--accent);color:#06201c;border-color:var(--accent);font-weight:500}
+pre{direction:ltr;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;overflow-x:auto;font-size:.85rem;line-height:1.6;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card .tag{color:var(--accent);font-size:.85rem}
+.card .tech{direction:ltr;unicode-bidi:isolate;color:var(--mute);font-size:.85rem;margin:.6em 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;direction:ltr;margin-bottom:22px}
+html[dir=rtl] .chips{justify-content:flex-end}
+.chips span{border:1px solid var(--line);border-radius:6px;padding:3px 12px;font-size:.9rem}
+.links{display:flex;gap:20px;flex-wrap:wrap;color:var(--accent)}
+footer{padding:28px 0;color:var(--mute);font-size:.9rem}
+
+/* Terminal-inspired developer portfolio */
+:root{--bg:#080d0b;--panel:#0d1511;--line:#1c3025;--text:#d9e7dc;--mute:#8aa394;--accent:#70f0a2;--font:'JetBrains Mono','Vazirmatn',monospace}
+html{scroll-padding-top:82px}
+body{background-color:var(--bg);background-image:linear-gradient(rgba(112,240,162,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(112,240,162,.025) 1px,transparent 1px);background-size:32px 32px;font-size:14px}
+header{background:rgba(8,13,11,.94);border-bottom:1px solid var(--line)}
+header .wrap{height:66px}
+.brand{font-size:.95rem;color:var(--accent)}
+.brand::before{content:'~/';color:var(--mute)}
+nav{font-size:.8rem;gap:22px}
+nav a::before{content:'./';color:#4f7560}
+.lang{border-radius:3px;border-color:var(--line);font-family:var(--font)}
+.gh{font-size:.82rem}
+section{padding:76px 0;border-bottom:1px dashed var(--line)}
+h1,h2,h3{font-family:var(--font);letter-spacing:-.045em}
+h1{font-size:clamp(2rem,5vw,3.2rem);color:var(--accent)}
+h1::before{content:'$ ';color:var(--mute);font-size:.72em}
+h2{font-size:1.55rem}
+h2::before{content:'// ';color:var(--accent)}
+h3{font-size:1rem}
+.hero{gap:48px}
+.hero img{width:88px;height:88px;border-radius:8px;border:1px solid var(--accent);box-shadow:5px 5px 0 rgba(112,240,162,.12)}
+.btns{gap:10px}
+.btn{border-radius:3px;padding:9px 15px;font-size:.82rem}
+.btn.p{background:var(--accent);box-shadow:3px 3px 0 #2e7147}
+pre{position:relative;padding:48px 20px 20px;border-radius:5px;border-color:var(--line);background:#090f0c;font-family:var(--font);font-size:.78rem;box-shadow:0 12px 40px rgba(0,0,0,.28)}
+pre::before{content:'●  ●  ●     developer.js';position:absolute;top:0;left:0;right:0;height:32px;padding:5px 13px;background:#111b15;border-bottom:1px solid var(--line);color:var(--mute);font:11px/22px var(--font)}
+.grid{gap:14px}
+.card{border-radius:4px;padding:19px;background:rgba(13,21,17,.92);border-color:var(--line);transition:border-color .18s,transform .18s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .tag{font-family:var(--font);font-size:.75rem}
+.card .tag::before{content:'[';color:var(--mute)}
+.card .tag::after{content:']';color:var(--mute)}
+.card .tech{font-family:var(--font);font-size:.72rem}
+.chips span{border-radius:3px;border-color:var(--line);font-size:.78rem}
+.chips span::before{content:'> ';color:var(--accent)}
+.links{font-size:.85rem}
+footer{border-top:1px solid var(--line);font-size:.78rem}
+@media(max-width:720px){.hero{grid-template-columns:1fr}nav{display:none}header .wrap{justify-content:space-between}.wrap{padding:0 18px}section{padding:56px 0}pre{font-size:.7rem;padding-inline:14px}}
+
+/* Polished shell chrome and live-session details */
+:root{--acid:#a6ff6f;--cyan:#61e7ff;--violet:#c5a2ff;--amber:#ffc66d}
+body{background-image:radial-gradient(ellipse at 50% -12%,rgba(54,137,91,.17),transparent 58%),linear-gradient(rgba(112,240,162,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(112,240,162,.025) 1px,transparent 1px);background-size:auto,32px 32px,32px 32px}
+body::after{content:"";position:fixed;inset:0;z-index:20;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.16) 4px)}
+header{border-top:2px solid var(--accent);box-shadow:0 8px 28px rgba(0,0,0,.26)}
+header .wrap{max-width:1120px}
+main.wrap{max-width:1040px}
+.session-bar{display:flex;justify-content:space-between;gap:16px;direction:ltr;unicode-bidi:isolate;padding:10px 14px;margin-top:24px;border:1px solid var(--line);border-bottom:0;background:#0c1410;color:var(--mute);font:10px/1.4 var(--font);letter-spacing:.04em}
+.session-bar i{display:inline-block;width:7px;height:7px;margin-right:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 9px var(--acid)}
+.session-bar b{color:var(--accent)}
+.session-ready{color:var(--acid)}
+#home{margin-top:0;padding-top:32px;border:1px solid var(--line);border-top:0;padding-inline:clamp(18px,4vw,44px);background:linear-gradient(135deg,rgba(14,25,19,.96),rgba(8,14,11,.96));box-shadow:0 20px 70px rgba(0,0,0,.26)}
+.command-line{direction:ltr;text-align:left;margin-bottom:20px;color:var(--text);font:12px/1.6 var(--font)}
+.command-line span{color:var(--cyan)}
+.command-line b{color:var(--violet);font-weight:500}
+.hero-copy>img{display:block;margin-bottom:18px}
+h1::after{content:'▌';display:inline-block;margin-left:8px;color:var(--cyan);font-size:.58em;vertical-align:.12em;animation:cursor-blink 1.1s steps(2,start) infinite}
+@keyframes cursor-blink{to{visibility:hidden}}
+pre{border-color:#294533;background:linear-gradient(145deg,#0b130f,#080d0b);box-shadow:0 14px 42px rgba(0,0,0,.4),inset 0 0 24px rgba(112,240,162,.025)}
+pre::before{color:#a7b7ab;background:linear-gradient(90deg,#16221a,#101913)}
+.syntax-key{color:var(--violet)}.syntax-var{color:var(--cyan)}.syntax-prop{color:var(--amber)}.syntax-str{color:var(--acid)}
+section:not(#home){position:relative}
+section:not(#home)::before{content:attr(id);position:absolute;top:22px;right:0;color:#42604b;font:10px var(--font);text-transform:uppercase;letter-spacing:.14em}
+html[dir=rtl] section:not(#home)::before{right:auto;left:0}
+.card{box-shadow:inset 2px 0 0 rgba(112,240,162,.12)}
+.card:hover{box-shadow:inset 2px 0 0 var(--accent),0 10px 28px rgba(0,0,0,.2)}
+.btn{transition:transform .18s,box-shadow .18s,border-color .18s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.p:hover{box-shadow:4px 5px 0 #2e7147}
+.links a:hover,.gh:hover{color:var(--cyan);text-shadow:0 0 12px rgba(97,231,255,.35)}
+footer .wrap{border-top:1px solid var(--line);padding-top:20px}
+@media(max-width:720px){.session-bar{font-size:9px;padding:9px 10px}.session-bar span:nth-child(2){display:none}#home{padding-inline:18px}.command-line{font-size:10px}section:not(#home)::before{top:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
-<header>
-<div class="wrap nav">
-<a class="brand" href="#home">Ardeshir<span>V</span></a>
-<nav aria-label="Main navigation">
-<a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
-</nav>
-<a class="nav-cta" href="https://github.com/ArdeshirV" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-</div>
-</header>
+<header><div class="wrap">
+  <a class="brand" href="#home">ArdeshirV</a>
+  <nav>
+    <a href="#about" data-en="About" data-fa="درباره من">About</a>
+    <a href="#projects" data-en="Projects" data-fa="پروژه‌ها">Projects</a>
+    <a href="#skills" data-en="Skills" data-fa="مهارت‌ها">Skills</a>
+    <a href="#contact" data-en="Contact" data-fa="تماس">Contact</a>
+  </nav>
+  <button class="lang" id="langBtn" type="button" aria-label="Switch language / تغییر زبان">فارسی</button>
+  <a class="gh" href="https://github.com/ArdeshirV">GitHub ↗</a>
+</div></header>
 
-<main>
-<div class="wrap hero" id="home">
-<div>
-<img class="profile-photo"
-src="https://avatars1.githubusercontent.com/u/46844576?s=460&amp;v=4"
-alt="ArdeshirV — Software Developer"
-width="112" height="112" fetchpriority="high">
-<div class="eyebrow">Open source · Go · C++ · Cross-platform tools</div>
-<h1>Hi, I'm<br><span>Ardeshir.</span></h1>
-<p class="lead">I build practical software across Go, C++, Python, and C#—from cross-platform apps and language editors to developer utilities, APIs, and experiments.</p>
-<div class="actions">
-<a class="button primary" href="#projects">Explore my work ↘</a>
-<a class="button secondary" href="https://www.linkedin.com/in/ArdeshirV/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
-</div>
-</div>
-<aside class="hero-card" aria-label="Developer profile card">
-<div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-label">ardeshirv / profile</span></div>
-<div class="code">
-<div><span class="dim">01</span> <span class="key">const</span> developer = {</div>
-<div>&nbsp;&nbsp;name: <span class="value">"Ardeshir"</span>,</div>
-<div>&nbsp;&nbsp;work: [</div>
-<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Cross-platform applications"</span>,</div>
-<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Developer tools & utilities"</span>,</div>
-<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Language and writing tools"</span></div>
-<div>&nbsp;&nbsp;],</div>
-<div>&nbsp;&nbsp;stack: [<span class="value">"Go", "C++", "Python", "C#"</span>],</div>
-<div>&nbsp;&nbsp;approach: <span class="value">"Build. Share. Improve."</span></div>
-<div>};</div>
-</div>
-<div class="availability"><span class="pulse"></span> Open to opportunities · Building in public.</div>
-</aside>
-</div>
+<main class="wrap">
+<div class="session-bar" aria-label="Terminal session status"><span><i></i> SESSION: ARDESHIRV@DEVBOX</span><span>~/portfolio <b>●</b> main</span><span class="session-ready">SYSTEM READY</span></div>
+<section id="home">
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="command-line"><span>ardeshir@devbox</span>:<b>~</b>$ ./whoami --verbose</div>
+      <img src="https://avatars1.githubusercontent.com/u/46844576?s=460&v=4" alt="ArdeshirV">
+      <p class="mute" data-en="Open source · Go · C++ · Cross-platform tools" data-fa="متن‌باز · Go · C++ · ابزارهای چندسکویی">Open source · Go · C++ · Cross-platform tools</p>
+      <h1 data-en="Hi, I'm Ardeshir." data-fa="سلام، من اردشیر هستم.">Hi, I'm Ardeshir.</h1>
+      <p class="mute" data-en="I build practical software across Go, C++, Python, and C#—from cross-platform apps and language editors to developer utilities, APIs, and experiments." data-fa="من نرم‌افزارهای کاربردی با Go، ++C، Python و #C می‌سازم؛ از برنامه‌های چندسکویی و ویرایشگرهای زبان گرفته تا ابزارهای توسعه‌دهندگان، API‌ها و آزمایش‌های مختلف.">I build practical software across Go, C++, Python, and C#—from cross-platform apps and language editors to developer utilities, APIs, and experiments.</p>
+      <div class="btns">
+        <a class="btn p" href="#projects" data-en="Explore my work ↘" data-fa="مشاهدهٔ کارها ↙">Explore my work ↘</a>
+        <a class="btn" href="https://www.linkedin.com/in/ArdeshirV/" data-en="Connect on LinkedIn ↗" data-fa="ارتباط در لینکدین ↗">Connect on LinkedIn ↗</a>
+      </div>
+    </div>
+    <div>
+<pre><span class="syntax-key">const</span> <span class="syntax-var">developer</span> = {
+  <span class="syntax-prop">name</span>: <span class="syntax-str">"Ardeshir"</span>,
+  <span class="syntax-prop">work</span>: [
+    <span class="syntax-str">"Cross-platform applications"</span>,
+    <span class="syntax-str">"Developer tools & utilities"</span>,
+    <span class="syntax-str">"Language and writing tools"</span>
+  ],
+  <span class="syntax-prop">stack</span>: [<span class="syntax-str">"Go"</span>, <span class="syntax-str">"C++"</span>, <span class="syntax-str">"Python"</span>, <span class="syntax-str">"C#"</span>],
+  <span class="syntax-prop">approach</span>: <span class="syntax-str">"Build. Share. Improve."</span>
+};</pre>
+      <p class="mute" data-en="Open to opportunities · Building in public." data-fa="آمادهٔ فرصت‌های جدید · ساختن در معرض دید همه.">Open to opportunities · Building in public.</p>
+    </div>
+  </div>
+</section>
 
-<section id="about"><div class="wrap">
-<div class="section-head">
-<div><div class="kicker">01 / About</div><h2>Practical engineering,<br>curious by nature.</h2></div>
-<p>I explore ideas by building and sharing software—from small command-line utilities to cross-platform desktop applications.</p>
-</div>
-<div class="about-grid">
-<div class="about-copy">
-<p>My GitHub projects cover Go, C++, Python, and C#: cross-platform applications, backend and web experiments, command-line tools, and reusable utilities.</p>
-<p>A recurring project theme is making ancient scripts easier to write. I maintain Avestan and Old Persian text-editor projects across multiple implementations, alongside practical tools such as PNG-to-ICO conversion and QR-code generation.</p>
-</div>
-<div class="principles">
-<div class="principle"><strong>Make useful tools</strong><span>Build focused software that solves a real task.</span></div>
-<div class="principle"><strong>Support more platforms</strong><span>Explore Go and C++ approaches to cross-platform applications.</span></div>
-<div class="principle"><strong>Share the work</strong><span>Publish projects on GitHub and keep learning through iteration.</span></div>
-</div>
-</div>
-</div></section>
+<section id="about">
+  <p class="mute" data-en="About" data-fa="درباره من">About</p>
+  <h2 data-en="Practical engineering, curious by nature." data-fa="مهندسی کاربردی، با روحیهٔ کنجکاو.">Practical engineering, curious by nature.</h2>
+  <p data-en="I explore ideas by building and sharing software—from small command-line utilities to cross-platform desktop applications." data-fa="من ایده‌ها را با ساختن و به اشتراک‌گذاشتن نرم‌افزار می‌کاوم؛ از ابزارهای کوچک خط فرمان تا برنامه‌های دسکتاپ چندسکویی.">I explore ideas by building and sharing software—from small command-line utilities to cross-platform desktop applications.</p>
+  <p data-en="My GitHub projects cover Go, C++, Python, and C#: cross-platform applications, backend and web experiments, command-line tools, and reusable utilities." data-fa="پروژه‌های من در گیت‌هاب شامل Go، ++C، Python و #C است: برنامه‌های چندسکویی، آزمایش‌های بک‌اند و وب، ابزارهای خط فرمان و ابزارهای قابل استفادهٔ مجدد.">My GitHub projects cover Go, C++, Python, and C#: cross-platform applications, backend and web experiments, command-line tools, and reusable utilities.</p>
+  <p data-en="A recurring project theme is making ancient scripts easier to write. I maintain Avestan and Old Persian text-editor projects across multiple implementations, alongside practical tools such as PNG-to-ICO conversion and QR-code generation." data-fa="یکی از موضوعات تکرارشونده در پروژه‌هایم، آسان‌تر کردن نوشتن با خط‌های باستانی است. من چند پیاده‌سازی از ویرایشگرهای متن اوستایی و پارسی باستان را نگهداری می‌کنم، در کنار ابزارهای کاربردی مانند تبدیل PNG به ICO و تولید کد QR.">A recurring project theme is making ancient scripts easier to write. I maintain Avestan and Old Persian text-editor projects across multiple implementations, alongside practical tools such as PNG-to-ICO conversion and QR-code generation.</p>
+  <div class="grid">
+    <div class="card"><h3 data-en="Make useful tools" data-fa="ساختن ابزارهای مفید">Make useful tools</h3><span class="mute" data-en="Build focused software that solves a real task." data-fa="ساختن نرم‌افزارهای متمرکز که یک مسئلهٔ واقعی را حل می‌کنند.">Build focused software that solves a real task.</span></div>
+    <div class="card"><h3 data-en="Support more platforms" data-fa="پشتیبانی از سکوهای بیشتر">Support more platforms</h3><span class="mute" data-en="Explore Go and C++ approaches to cross-platform applications." data-fa="بررسی رویکردهای Go و ++C برای ساخت برنامه‌های چندسکویی.">Explore Go and C++ approaches to cross-platform applications.</span></div>
+    <div class="card"><h3 data-en="Share the work" data-fa="به اشتراک‌گذاشتن کار">Share the work</h3><span class="mute" data-en="Publish projects on GitHub and keep learning through iteration." data-fa="انتشار پروژه‌ها در گیت‌هاب و یادگیری مداوم از راه تکرار و بهبود.">Publish projects on GitHub and keep learning through iteration.</span></div>
+  </div>
+</section>
 
-<section id="projects"><div class="wrap">
-<div class="section-head">
-<div><div class="kicker">02 / Selected work</div><h2>Projects & experiments</h2></div>
-<p>Projects I've pinned on GitHub. Visit my profile to see the full repository collection.</p>
-</div>
-<div class="projects">
-<article class="project">
-<div class="project-top"><div class="project-icon">AV</div><span class="tag">Cross-platform</span></div>
-<h3>Summer Avestan Editor</h3>
-<p>A plain-text editor for writing Avestan and Old Persian cuneiform on Windows, Linux, and Android.</p>
-<div class="meta">C++ · TEXT EDITING · MULTI-PLATFORM</div>
-<a class="repo" href="https://github.com/ArdeshirV/SummerAvestanEditor" target="_blank" rel="noopener noreferrer">View repository ↗</a>
-</article>
-<article class="project">
-<div class="project-top"><div class="project-icon">C#</div><span class="tag">Developer tools</span></div>
-<h3>ArdeshirV.Forms</h3>
-<p>A customized collection of everyday .NET Windows Forms components, including an About box, error handler, and splash screen.</p>
-<div class="meta">C# · .NET · WINDOWS FORMS</div>
-<a class="repo" href="https://github.com/ArdeshirV/ArdeshirV.Forms" target="_blank" rel="noopener noreferrer">View repository ↗</a>
-</article>
-<article class="project">
-<div class="project-top"><div class="project-icon">GO</div><span class="tag">Team project</span></div>
-<h3>Airline Ticket Management</h3>
-<p>A software-engineering internship final project built with Go as part of The Go Dragons team.</p>
-<div class="meta">GO · TEAM PROJECT</div>
-<a class="repo" href="https://github.com/ArdeshirV/Airline-Ticket-Management" target="_blank" rel="noopener noreferrer">View repository ↗</a>
-</article>
-<article class="project">
-<div class="project-top"><div class="project-icon">QR</div><span class="tag">Utility</span></div>
-<h3>QR Code Generator with Logo</h3>
-<p>A tool for generating QR codes with a predefined or custom logo embedded in the code.</p>
-<div class="meta">C# · QR CODES</div>
-<a class="repo" href="https://github.com/ArdeshirV/QrCodeGeneratorWithLogo" target="_blank" rel="noopener noreferrer">View repository ↗</a>
-</article>
-<article class="project">
-<div class="project-top"><div class="project-icon">API</div><span class="tag">Python</span></div>
-<h3>MyBinance</h3>
-<p>A small project that demonstrates cryptocurrency values using data from the Binance API.</p>
-<div class="meta">PYTHON · API INTEGRATION</div>
-<a class="repo" href="https://github.com/ArdeshirV/MyBinance" target="_blank" rel="noopener noreferrer">View repository ↗</a>
-</article>
-<article class="project">
-<div class="project-top"><div class="project-icon">C++</div><span class="tag">Experiment</span></div>
-<h3>FractalX</h3>
-<p>A compact exploration of fractal generation, demonstrating Sierpinski triangle, snowflake, and tree patterns.</p>
-<div class="meta">C++ · FRACTALS · GRAPHICS</div>
-<a class="repo" href="https://github.com/ArdeshirV/FractalX" target="_blank" rel="noopener noreferrer">View repository ↗</a>
-</article>
-</div>
-<div class="actions"><a class="button secondary" href="https://github.com/ArdeshirV?tab=repositories" target="_blank" rel="noopener noreferrer">Browse all repositories ↗</a></div>
-</div></section>
+<section id="projects">
+  <p class="mute" data-en="Selected work" data-fa="کارهای منتخب">Selected work</p>
+  <h2 data-en="Projects & experiments" data-fa="پروژه‌ها و آزمایش‌ها">Projects & experiments</h2>
+  <p class="mute" data-en="Projects I've pinned on GitHub. Visit my profile to see the full repository collection." data-fa="پروژه‌هایی که در گیت‌هاب پین کرده‌ام. برای دیدن همهٔ مخزن‌ها به پروفایلم سر بزنید.">Projects I've pinned on GitHub. Visit my profile to see the full repository collection.</p>
+  <div class="grid">
+    <div class="card"><div class="tag" data-en="Cross-platform" data-fa="چندسکویی">Cross-platform</div><h3>Summer Avestan Editor</h3><p data-en="A plain-text editor for writing Avestan and Old Persian cuneiform on Windows, Linux, and Android." data-fa="ویرایشگر متن ساده برای نوشتن اوستایی و خط میخی پارسی باستان در ویندوز، لینوکس و اندروید.">A plain-text editor for writing Avestan and Old Persian cuneiform on Windows, Linux, and Android.</p><div class="tech">C++ · TEXT EDITING · MULTI-PLATFORM</div><a class="gh" href="https://github.com/ArdeshirV/SummerAvestanEditor" data-en="View repository ↗" data-fa="مشاهدهٔ مخزن ↗">View repository ↗</a></div>
+    <div class="card"><div class="tag" data-en="Developer tools" data-fa="ابزار توسعه">Developer tools</div><h3>ArdeshirV.Forms</h3><p data-en="A customized collection of everyday .NET Windows Forms components, including an About box, error handler, and splash screen." data-fa="مجموعه‌ای سفارشی از اجزای رایج .NET Windows Forms، شامل پنجرهٔ درباره، مدیریت خطا و صفحهٔ آغازین.">A customized collection of everyday .NET Windows Forms components, including an About box, error handler, and splash screen.</p><div class="tech">C# · .NET · WINDOWS FORMS</div><a class="gh" href="https://github.com/ArdeshirV/ArdeshirV.Forms" data-en="View repository ↗" data-fa="مشاهدهٔ مخزن ↗">View repository ↗</a></div>
+    <div class="card"><div class="tag" data-en="Team project" data-fa="پروژهٔ تیمی">Team project</div><h3>Airline Ticket Management</h3><p data-en="A software-engineering internship final project built with Go as part of The Go Dragons team." data-fa="پروژهٔ پایانی دورهٔ کارآموزی مهندسی نرم‌افزار که با Go و در قالب تیم The Go Dragons ساخته شد.">A software-engineering internship final project built with Go as part of The Go Dragons team.</p><div class="tech">GO · TEAM PROJECT</div><a class="gh" href="https://github.com/ArdeshirV/Airline-Ticket-Management" data-en="View repository ↗" data-fa="مشاهدهٔ مخزن ↗">View repository ↗</a></div>
+    <div class="card"><div class="tag" data-en="Utility" data-fa="ابزار کاربردی">Utility</div><h3>QR Code Generator with Logo</h3><p data-en="A tool for generating QR codes with a predefined or custom logo embedded in the code." data-fa="ابزاری برای تولید کد QR با لوگوی پیش‌فرض یا دلخواه در مرکز آن.">A tool for generating QR codes with a predefined or custom logo embedded in the code.</p><div class="tech">C# · QR CODES</div><a class="gh" href="https://github.com/ArdeshirV/QrCodeGeneratorWithLogo" data-en="View repository ↗" data-fa="مشاهدهٔ مخزن ↗">View repository ↗</a></div>
+    <div class="card"><div class="tag">Python</div><h3>MyBinance</h3><p data-en="A small project that demonstrates cryptocurrency values using data from the Binance API." data-fa="پروژه‌ای کوچک که با استفاده از داده‌های API بایننس، ارزش رمزارزها را نمایش می‌دهد.">A small project that demonstrates cryptocurrency values using data from the Binance API.</p><div class="tech">PYTHON · API INTEGRATION</div><a class="gh" href="https://github.com/ArdeshirV/MyBinance" data-en="View repository ↗" data-fa="مشاهدهٔ مخزن ↗">View repository ↗</a></div>
+    <div class="card"><div class="tag" data-en="Experiment" data-fa="آزمایش">Experiment</div><h3>FractalX</h3><p data-en="A compact exploration of fractal generation, demonstrating Sierpinski triangle, snowflake, and tree patterns." data-fa="کاوشی فشرده در تولید فراکتال‌ها، با نمونه‌هایی از مثلث سیرپینسکی، دانه‌برف و درخت.">A compact exploration of fractal generation, demonstrating Sierpinski triangle, snowflake, and tree patterns.</p><div class="tech">C++ · FRACTALS · GRAPHICS</div><a class="gh" href="https://github.com/ArdeshirV/FractalX" data-en="View repository ↗" data-fa="مشاهدهٔ مخزن ↗">View repository ↗</a></div>
+  </div>
+  <p><a class="gh" href="https://github.com/ArdeshirV?tab=repositories" data-en="Browse all repositories ↗" data-fa="مشاهدهٔ همهٔ مخزن‌ها ↗">Browse all repositories ↗</a></p>
+</section>
 
-<section id="skills"><div class="wrap">
-<div class="section-head">
-<div><div class="kicker">03 / Toolbox</div><h2>Technologies I work with</h2></div>
-<p>A snapshot of languages and areas represented in my projects and current learning.</p>
-</div>
-<div class="skills">
-<div class="skill"><h3>Languages</h3><div class="chips"><span class="chip">Go</span><span class="chip">C++</span><span class="chip">C#</span><span class="chip">Python</span><span class="chip">C</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span></div></div>
-<div class="skill"><h3>Backend & data</h3><div class="chips"><span class="chip">REST APIs</span><span class="chip">SQL</span><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">Service design</span></div></div>
-<div class="skill"><h3>Tools & platforms</h3><div class="chips"><span class="chip">Linux</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">GitHub</span><span class="chip">VS Code</span></div></div>
-<div class="skill"><h3>App development</h3><div class="chips"><span class="chip">Fyne</span><span class="chip">.NET</span><span class="chip">Desktop apps</span><span class="chip">Cross-platform UI</span><span class="chip">CLI tools</span></div></div>
-</div>
-</div></section>
+<section id="skills">
+  <p class="mute" data-en="Toolbox" data-fa="جعبه‌ابزار">Toolbox</p>
+  <h2 data-en="Technologies I work with" data-fa="فناوری‌هایی که با آن‌ها کار می‌کنم">Technologies I work with</h2>
+  <p class="mute" data-en="A snapshot of languages and areas represented in my projects and current learning." data-fa="تصویری کلی از زبان‌ها و حوزه‌هایی که در پروژه‌ها و یادگیری فعلی من حضور دارند.">A snapshot of languages and areas represented in my projects and current learning.</p>
+  <h3 data-en="Languages" data-fa="زبان‌ها">Languages</h3>
+  <div class="chips"><span>Go</span><span>C++</span><span>C#</span><span>Python</span><span>C</span><span>JavaScript</span><span>TypeScript</span></div>
+  <h3 data-en="Backend & data" data-fa="بک‌اند و داده">Backend & data</h3>
+  <div class="chips"><span>REST APIs</span><span>SQL</span><span>PostgreSQL</span><span>SQLite</span><span>Service design</span></div>
+  <h3 data-en="Tools & platforms" data-fa="ابزارها و سکوها">Tools & platforms</h3>
+  <div class="chips"><span>Linux</span><span>Git</span><span>Docker</span><span>GitHub</span><span>VS Code</span></div>
+  <h3 data-en="App development" data-fa="توسعهٔ برنامه">App development</h3>
+  <div class="chips"><span>Fyne</span><span>.NET</span><span>Desktop apps</span><span>Cross-platform UI</span><span>CLI tools</span></div>
+</section>
 
-<section id="currently"><div class="wrap">
-<div class="section-head"><div><div class="kicker">04 / Current direction</div><h2>What I'm exploring now</h2></div></div>
-<div class="now-grid">
-<div class="now-card"><div class="label">Building</div><h3>Tools for Avestan & Old Persian</h3><p>Developing and maintaining text editors that make these scripts easier to enter on Windows, Linux, and Android.</p></div>
-<div class="now-card"><div class="label">Exploring</div><h3>Practical cross-platform software</h3><p>Working across Go and C++ on GUI applications, small developer utilities, and experiments shared on GitHub.</p></div>
-</div>
-</div></section>
+<section id="direction">
+  <p class="mute" data-en="Current direction" data-fa="مسیر کنونی">Current direction</p>
+  <h2 data-en="What I'm exploring now" data-fa="این روزها دنبال چه هستم">What I'm exploring now</h2>
+  <div class="grid">
+    <div class="card"><div class="tag" data-en="Building" data-fa="در حال ساخت">Building</div><h3 data-en="Tools for Avestan & Old Persian" data-fa="ابزارهایی برای اوستایی و پارسی باستان">Tools for Avestan & Old Persian</h3><span class="mute" data-en="Developing and maintaining text editors that make these scripts easier to enter on Windows, Linux, and Android." data-fa="توسعه و نگهداری ویرایشگرهای متنی که تایپ این خط‌ها را در ویندوز، لینوکس و اندروید آسان‌تر می‌کنند.">Developing and maintaining text editors that make these scripts easier to enter on Windows, Linux, and Android.</span></div>
+    <div class="card"><div class="tag" data-en="Exploring" data-fa="در حال کاوش">Exploring</div><h3 data-en="Practical cross-platform software" data-fa="نرم‌افزارهای کاربردی چندسکویی">Practical cross-platform software</h3><span class="mute" data-en="Working across Go and C++ on GUI applications, small developer utilities, and experiments shared on GitHub." data-fa="کار با Go و ++C روی برنامه‌های گرافیکی، ابزارهای کوچک توسعه و آزمایش‌هایی که در گیت‌هاب منتشر می‌کنم.">Working across Go and C++ on GUI applications, small developer utilities, and experiments shared on GitHub.</span></div>
+  </div>
+</section>
 
-<section id="contact"><div class="wrap">
-<div class="contact">
-<div><div class="kicker">05 / Get in touch</div><h2>Have an interesting problem?</h2><p>I'm interested in thoughtful engineering, useful software, and exchanging ideas with people who enjoy building things.</p></div>
-<div class="contact-links">
-<a href="https://github.com/ArdeshirV" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-<a href="https://www.linkedin.com/in/ArdeshirV/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-<a href="https://orcid.org/0009-0004-6154-6557" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
-</div>
-</div>
-</div></section>
+<section id="contact" style="border-bottom:0">
+  <p class="mute" data-en="Get in touch" data-fa="در تماس باشید">Get in touch</p>
+  <h2 data-en="Have an interesting problem?" data-fa="مسئلهٔ جالبی دارید؟">Have an interesting problem?</h2>
+  <p class="mute" data-en="I'm interested in thoughtful engineering, useful software, and exchanging ideas with people who enjoy building things." data-fa="به مهندسی سنجیده، نرم‌افزار مفید و تبادل ایده با کسانی که ساختن را دوست دارند علاقه‌مندم.">I'm interested in thoughtful engineering, useful software, and exchanging ideas with people who enjoy building things.</p>
+  <div class="links"><a href="https://github.com/ArdeshirV">GitHub ↗</a><a href="https://www.linkedin.com/in/ArdeshirV/">LinkedIn ↗</a><a href="https://orcid.org/0009-0004-6154-6557">ORCID ↗</a></div>
+</section>
 </main>
 
-<footer class="wrap footer">
-<span>© <span id="year">2026</span> ArdeshirV. Built with care.</span>
-<span><a href="https://github.com/ArdeshirV">GitHub</a> · <a href="https://www.linkedin.com/in/ArdeshirV/">LinkedIn</a></span>
-</footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<footer><div class="wrap">
+  <span data-en="© 2026 ArdeshirV. Built with care." data-fa="© ۲۰۲۶ ArdeshirV. با دقت ساخته شده.">© 2026 ArdeshirV. Built with care.</span>
+  · <a href="https://github.com/ArdeshirV">GitHub</a> · <a href="https://www.linkedin.com/in/ArdeshirV/">LinkedIn</a>
+</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('langBtn');
+  function apply(lang){
+    root.lang=lang; root.dir=lang==='fa'?'rtl':'ltr';
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      el.textContent=el.getAttribute('data-'+lang);
+    });
+    btn.textContent=lang==='fa'?'English':'فارسی';
+    try{localStorage.setItem('lang',lang);}catch(e){}
+  }
+  var saved=null;
+  try{saved=localStorage.getItem('lang');}catch(e){}
+  if(!saved){saved=(navigator.language||'').toLowerCase().indexOf('fa')===0?'fa':'en';}
+  btn.addEventListener('click',function(){apply(root.lang==='fa'?'en':'fa');});
+  if(saved==='fa')apply('fa');
+})();
+</script>
 </body>
 </html>
